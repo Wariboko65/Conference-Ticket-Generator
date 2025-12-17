@@ -34,11 +34,11 @@ function TicketForm() {
  
   useEffect(() => {
     return () => {
-      if (avatarPreview) {
-        URL.revokeObjectURL(avatarPreview);
+      if (formData.avatarPreview) {
+        URL.revokeObjectURL(formData.avatarPreview);
       }
     }
-  }, []);
+  }, [formData.avatarPreview]);
  
   const handelChange = (e) => {
     const { name, value, validity } = e.target;

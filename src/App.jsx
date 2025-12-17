@@ -13,7 +13,7 @@ import  './App.css';
 function App() {
   const [formData, setFormData] = useState({
     avatar: null,
-    avatarPreview: "",
+    avatarPreview: null,
     fullName: "",
     email: "",
     username: ""
