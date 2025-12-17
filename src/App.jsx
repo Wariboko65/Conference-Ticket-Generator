@@ -12,13 +12,14 @@ import  './App.css';
 
 function App() {
   const [formData, setFormData] = useState({
-    avatar: "",
+    avatar: null,
+    avatarPreview: "",
     fullName: "",
     email: "",
     username: ""
   });
   const [errMessage, setErrMessage] = useState({
-    file: "Upload your photo (JPG or PNG, max size: 500KB).",
+    avater: "Upload your photo (JPG or PNG, max size: 500KB).",
     fullName: "",
     email: "",
     username: ""
