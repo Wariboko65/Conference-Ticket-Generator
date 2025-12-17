@@ -1,8 +1,22 @@
 import { Link } from "react-router";
+import { useContext, useEffect } from "react";
+import FormContext from "../components/context.jsx";
+import { HandHelping, TreePalmIcon } from "lucide-react";
 
 function TicketForm() {
+  const { formData, setFormData, errMessage, setErrMessage} = useContext(FormContext);
+ 
+  const handelChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setFormData((values) => ({...values, [name]: value}));
+    if (e.target.validity.patternMismatch) {
+      setErrMessage((prev) => ({...prev, email: "non"}))
+    }
+  }
+
     return (
-        <form action="">
+        <form>
             <h1>
                 Your Journey to Coding Conf 2025 Starts Here!
             </h1>
@@ -13,38 +27,47 @@ function TicketForm() {
             <input 
               type="file" 
               name="avatar" 
-              id="file" 
+              id="file"
+              value={formData.avatar}
             />
-            <span></span>
+            <span>{errMessage.file}</span>
            
-           <label htmlFor="name">Full Name</label>
+           <label htmlFor="name">Full Name{formData.avatar}</label>
            <input  
              type="text" 
              name="fullName" 
              id="name"
+             value={formData.fullName}
+             onChange={handelChange}
              placeholder="John Doe"
             />
-            <span></span>
+            <span>{errMessage.fullName}</span>
            
            <label htmlFor="emailInput">Email Address</label>
            <input 
              type="email" 
              name="email" 
              id="emailInput"
+             value={formData.email}
+             onChangeCapture={handelChange}
              placeholder="example@email.com"
+             pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
             />
-            <span></span>
+            <span>{errMessage.email}</span>
 
             <label htmlFor="usernameInput">GitHub Username</label>
             <input 
               type="text" 
               name="username" 
               id="usernameInput"
+              value={formData.username}
+              onChange={handelChange}
               placeholder="@yourusername"
+              pattern="^@.*"
             />
-            <span></span>
+            <span>{errMessage.username}</span>
            
-           <Link to="/ticket">Generate My Ticket</Link>
+           <button type="submit">Generate My Ticket</button>
             
         </form>
     );

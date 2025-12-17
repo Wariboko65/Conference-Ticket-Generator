@@ -7,14 +7,26 @@ import circle from "./assets/images/pattern-circle.svg";
 import logo from "./assets/images/logo-full.svg";
 import TicketForm from "./pages/ticketForm.jsx";
 import Ticket from "./pages/ticket.jsx";
-import './App.css';
+import FormContext from "./components/context.jsx";
+import  './App.css';
 
-const FormContext = createContext();
 function App() {
-  const [formData, setFormData] = useState("egg");
+  const [formData, setFormData] = useState({
+    avatar: "",
+    fullName: "",
+    email: "",
+    username: ""
+  });
+  const [errMessage, setErrMessage] = useState({
+    file: "Upload your photo (JPG or PNG, max size: 500KB).",
+    fullName: "",
+    email: "",
+    username: ""
+  })
+
   return (
       <div className="appContainer">
-        <FormContext.Provider value={formData}>
+        <FormContext.Provider value={{ formData, setFormData, errMessage, setErrMessage }}>
         <div className="backgroundDesign">
           <img className="topRight" src={topRight} alt="backgroundDesign" />
           <img className="mBottomLeft" src={bottomLeftMobile} alt="backgroundDesign" />

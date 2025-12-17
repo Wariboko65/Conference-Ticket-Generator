@@ -1,11 +1,11 @@
 import { Link } from "react-router";
 import { useContext } from "react";
+import FormContext from "../components/context.jsx";
 
 function Ticket() {
-    const formData = useContext(FormContext);
     return (
         <div className="container">
-            <p>Ticket{formData}</p>
+            <p>Ticket</p>
             <Link to="/">Back to form</Link>
         </div>
     ); 
