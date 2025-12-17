@@ -7,16 +7,26 @@ function TicketForm() {
   const { formData, setFormData, errMessage, setErrMessage} = useContext(FormContext);
  
   const handelChange = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    setFormData((values) => ({...values, [name]: value}));
-    if (e.target.validity.patternMismatch) {
-      setErrMessage((prev) => ({...prev, email: "non"}))
+    const { name, value, validity, files } = e.target;
+   
+    if (name === "avatar") {
+      setFormData((prev) => ({...prev, avatar: files[0]}));
+      return;
+    }
+
+    setFormData((prev) => ({...prev, [name]: value}));
+
+    if (name === "email") {
+      if (validity.PatternMismatch) {
+        setErrMessage((prev) => ({...prev, email: "Please enter a valid email",}));
+      } else {
+        setErrMessage((prev) => ({...prev, email: "",}));
+      }
     }
   }
 
     return (
-        <form>
+        <form noValidate>
             <h1>
                 Your Journey to Coding Conf 2025 Starts Here!
             </h1>
