@@ -38,7 +38,7 @@ function TicketForm() {
         URL.revokeObjectURL(formData.avatarPreview);
       }
     }
-  }, [formData.avatarPreview]);
+  }, []);
  
   const handelChange = (e) => {
     const { name, value, validity } = e.target;

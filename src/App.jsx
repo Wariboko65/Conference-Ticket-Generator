@@ -19,7 +19,7 @@ function App() {
     username: ""
   });
   const [errMessage, setErrMessage] = useState({
-    avater: "Upload your photo (JPG or PNG, max size: 500KB).",
+    avatar: "Upload your photo (JPG or PNG, max size: 500KB).",
     fullName: "",
     email: "",
     username: ""
