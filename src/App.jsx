@@ -13,7 +13,7 @@ import  './App.css';
 
 function App() {
   const [formData, setFormData] = useState(() => {
-    const saved = localStorage.getItem("formData");
+    const saved = sessionStorage.getItem("formData");
     return saved ? JSON.parse(saved) : {
       avatar: null,
       avatarPreview: null,
@@ -34,7 +34,7 @@ function App() {
   const navigate = useNavigate()
  
   useEffect(() => {
-    localStorage.setItem("formData", JSON.stringify({
+    sessionStorage.setItem("formData", JSON.stringify({
       avatarPreview: formData.avatarPreview,
       fullName: formData.fullName,
       email: formData.email,
