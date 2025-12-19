@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import topRight from "./assets/images/pattern-squiggly-line-top.svg";
 import bottomLeftMobile from "./assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg";
@@ -12,12 +12,15 @@ import FormContext from "./components/context.jsx";
 import  './App.css';
 
 function App() {
-  const [formData, setFormData] = useState({
-    avatar: null,
-    avatarPreview: null,
-    fullName: "",
-    email: "",
-    username: ""
+  const [formData, setFormData] = useState(() => {
+    const saved = localStorage.getItem("formData");
+    return saved ? JSON.parse(saved) : {
+      avatar: null,
+      avatarPreview: null,
+      fullName: "",
+      email: "",
+      username: ""
+    }
   });
 
   const [errMessage, setErrMessage] = useState({
@@ -29,6 +32,14 @@ function App() {
  
   const inputElement = useRef();
   const navigate = useNavigate()
+ 
+  useEffect(() => {
+    localStorage.setItem("formData", JSON.stringify({
+      fullName: formData.fullName,
+      email: formData.email,
+      username: formData.username
+    }));
+  }, [formData]);
 
   return (
       <div className="appContainer">

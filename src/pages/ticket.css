@@ -5,8 +5,8 @@
 
 .ticContainer {
     position: relative;
+    width: min(100%, 500px);
     margin-block-start: 80px;
-    border: 2px solid red;
 }
 
 .tic {
@@ -18,7 +18,6 @@
     position: absolute;
     top: 15px;
     left: 15px;
-    border: 2px solid red;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -55,18 +54,22 @@
 .avatarPreview:hover img {
     transform: scale(1.3);
 }
+
 .avatarData p {
     text-align: left;
     color: var(--text-1)
 }
+
 .avatarData div {
     display: flex;
     align-items: center;
     gap: 5px;
 }
+
 .avatarData div img {
    width: 15px;
 }
+
 .avatarData div span {
     font-size: 11px;
 }
@@ -76,7 +79,17 @@
         width: 80%;
     }
     .ticContainer {
-        w
+        margin-inline: auto;
+    }
+    .ticHeader {
+        width: 300px;
+    }
+    .ticFooter {
+        width: 300px;
+    }
+    .avatarPreview {
+        height: 80px;
+        width: 80px;
     }
 }
 

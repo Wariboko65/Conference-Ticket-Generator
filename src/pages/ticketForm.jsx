@@ -27,21 +27,20 @@ function TicketForm() {
       return;
     }
    
-    const previewURL = URL.createObjectURL(file);
+    const reader = new FileReader();
+
+    reader.onloadend = () => {
+      setFormData((prev) => ({
+        ...prev,
+        avatar: file,
+        avatarPreview: reader.result
+      }));
+    };
    
-    setFormData((prev) => ({...prev, avatar: file, avatarPreview: previewURL}));
+    reader.readAsDataURL(file);
    
     setErrMessage((prev) => ({...prev, avatar: "Upload your photo (JPG or PNG, max size: 500KB)."}))
-   
-  }
- 
-  useEffect(() => {
-    return () => {
-      if (formData.avatarPreview) {
-        URL.revokeObjectURL(formData.avatarPreview);
-      }
-    }
-  }, []);
+  };
  
   const handelChange = (e) => {
     const { name, value, validity } = e.target;
@@ -56,7 +55,7 @@ function TicketForm() {
         setErrMessage((prev) => ({...prev, email: "",}));
       }
     }
-  }
+  };
  
   const handelSubmit = (e) => {
     e.preventDefault();
@@ -90,7 +89,7 @@ function TicketForm() {
     setTimeout(() => {
       navigate("/ticket");
     }, 250);
-  }
+  };
 
 
     return (
