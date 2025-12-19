@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router";
-import { useState, createContext } from "react";
+import { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import topRight from "./assets/images/pattern-squiggly-line-top.svg";
 import bottomLeftMobile from "./assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg";
 import bottomLeftDesktop from "./assets/images/pattern-squiggly-line-bottom-desktop.svg";
@@ -18,16 +19,20 @@ function App() {
     email: "",
     username: ""
   });
+
   const [errMessage, setErrMessage] = useState({
     avatar: "Upload your photo (JPG or PNG, max size: 500KB).",
     fullName: "",
     email: "",
     username: ""
   })
+ 
+  const inputElement = useRef();
+  const navigate = useNavigate()
 
   return (
       <div className="appContainer">
-        <FormContext.Provider value={{ formData, setFormData, errMessage, setErrMessage }}>
+        <FormContext.Provider value={{ formData, setFormData, errMessage, setErrMessage, inputElement, navigate }}>
         <div className="backgroundDesign">
           <img className="topRight" src={topRight} alt="backgroundDesign" />
           <img className="mBottomLeft" src={bottomLeftMobile} alt="backgroundDesign" />
