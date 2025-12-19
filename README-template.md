@@ -4,8 +4,8 @@ This is a solution to the [Conference ticket generator challenge on Frontend Men
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Conference Ticket Generator](https://www.frontendmentor.io/solutions/conference-ticket-generator-H8Cb7Y-NJs)
+- Live Site URL: [Conference Ticket Generator](https://conference-ticket-generator-steel-eight.vercel.app/)
 
 
 ## Author
