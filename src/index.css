@@ -4,10 +4,11 @@
   --border: hsl(245, 15%, 58%);
   --input-bg: rgba(75, 72, 106, 0.3);
   --hover: rgba(75, 72, 106, 0.65);
+  --number: rgba(255, 255, 255, 0.3);
   --btn-color: hsl(248, 70%, 10%);
   --btn-bg: hsl(7, 88%, 67%);
   --err: hsl(7, 71%, 60%);
-  --gradient: hsl(7, 86%, 67%) to hsl(0, 0%, 100%);
+  --gradient: linear-gradient(to right,hsl(7, 86%, 67%), hsl(0, 0%, 100%));
 }
 
 * {

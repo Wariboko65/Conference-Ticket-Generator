@@ -35,6 +35,7 @@ function App() {
  
   useEffect(() => {
     localStorage.setItem("formData", JSON.stringify({
+      avatarPreview: formData.avatarPreview,
       fullName: formData.fullName,
       email: formData.email,
       username: formData.username

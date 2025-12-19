@@ -16,7 +16,7 @@ p, h1 {
     text-align: center;
 }
 
-p, label, span {
+p, label, .span {
     color: var(--text-2);
 }
 

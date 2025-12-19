@@ -6,9 +6,13 @@
 .ticContainer {
     position: relative;
     width: min(100%, 500px);
+    margin-inline: auto;
     margin-block-start: 80px;
 }
 
+.ticContainer span {
+    color: var(--text-2);
+}
 .tic {
     width: 100%;
 }
@@ -74,12 +78,57 @@
     font-size: 11px;
 }
 
+.backBtn {
+    margin-block: 15px 50px;
+    display: flex;
+    justify-content: end;
+    width: min(100%, 500px);
+    margin-inline: auto;
+}
+
+.backBtn button {
+    background: var(--btn-bg);
+    color: var(--btn-color);
+    font-weight: 500;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 10px;
+    transition: box-shadow .25s ease-in-out, background-color .25s ease-in-out;
+}
+
+.backBtn button:hover {
+    background-color: var(--err);
+    box-shadow: 0 -4px 1px 0 var(--btn-bg) inset;
+}
+
+p span {
+    color: var(--btn-bg);
+}
+
+h1 span {
+    background: var(--gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.side {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.side p {
+    writing-mode: vertical-rl;
+    font-weight: 600;
+    color: var(--number);
+    font-size: 20px;
+}
+
 @media (width >= 768px) {
     .ticPage {
         width: 80%;
-    }
-    .ticContainer {
-        margin-inline: auto;
     }
     .ticHeader {
         width: 300px;

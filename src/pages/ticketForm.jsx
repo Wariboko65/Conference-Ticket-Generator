@@ -36,10 +36,10 @@ function TicketForm() {
         avatarPreview: reader.result
       }));
     };
+  
+    setErrMessage((prev) => ({...prev, avatar: "Upload your photo (JPG or PNG, max size: 500KB)."}))
    
     reader.readAsDataURL(file);
-   
-    setErrMessage((prev) => ({...prev, avatar: "Upload your photo (JPG or PNG, max size: 500KB)."}))
   };
  
   const handelChange = (e) => {
@@ -60,7 +60,7 @@ function TicketForm() {
   const handelSubmit = (e) => {
     e.preventDefault();
    
-    if (formData.avatarPreview === null) {
+    if (!formData.avatarPreview) {
       setErrMessage((prev) => ({...prev, avatar: "Avatar is required"}));
       return;
     }
@@ -119,7 +119,7 @@ function TicketForm() {
                   </div>
                   <div className="previewText">
                   <button type="button" onClick={() => (inputElement.current.click())}>Change avatar</button>
-                  <button type="button" onClick={() => (setFormData((prev) => ({...prev, avatarPreview: null})))}>Remove Image</button>
+                  <button type="button" onClick={() => (setFormData((prev) => ({...prev, avatarPreview: null, avatar: null})))}>Remove Image</button>
                   </div>
                  </div> :
                  <div>

@@ -7,7 +7,7 @@ import gitHubIcon from "../assets/images/icon-github.svg"
 import "./ticket.css";
 
 function Ticket() {
-    const { formData } = useContext(FormContext);
+    const { formData, navigate } = useContext(FormContext);
     const d = new Date();
   
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -38,8 +38,17 @@ function Ticket() {
                         </div>
                     </div>
                 </div>
+                <div className="side">
+                    <p>#01609</p>
+                </div>
             </div>
-            <Link to="/">Back to form</Link>
+            <div className="backBtn">
+            <button type="button" onClick={() => {
+                setTimeout(() => {
+                    navigate("/");
+                }, 250);
+            }}>Back</button>
+            </div>
         </div>
     ); 
 }
