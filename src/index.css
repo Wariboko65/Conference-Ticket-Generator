@@ -29,6 +29,10 @@ body {
   background-position: center;
 }
 
+button {
+  cursor: pointer;
+}
+
 @media (width >= 768px) {
   body {
     background-image: url("./assets/images/background-tablet.png");
