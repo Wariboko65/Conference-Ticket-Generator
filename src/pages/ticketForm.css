@@ -169,6 +169,10 @@ input::placeholder {
         width: 75%;
         margin-inline: auto;
     }
+   
+    .avatarLabel {
+        margin-block-end: 110px;
+    }
 }
 
 @media (width >= 1024px) {
